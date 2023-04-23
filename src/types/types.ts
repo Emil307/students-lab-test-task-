@@ -1,4 +1,4 @@
-interface IList {
+export interface IQuotesList {
   _id: string,
   content: string,
   author: string,
@@ -13,5 +13,5 @@ export interface IQuotes {
   page: number,
   totalPages: number,
   lastItemIndex: number,
-  results: IList[],
+  results: IQuotesList[],
 }
