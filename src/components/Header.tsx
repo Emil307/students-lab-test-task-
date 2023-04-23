@@ -11,6 +11,7 @@ const Container = styled.header`
   max-width: 1170px;
   margin: 0 auto;
   padding: 0 15px;
+  border-bottom: 1px #ddd solid;
 `
 
 const Logo = styled.a`
