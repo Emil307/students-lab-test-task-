@@ -1,13 +1,13 @@
 import React from 'react';
 import Header from '../components/Header';
 
-const Home: React.FC = () => {
+const Profile: React.FC = () => {
   return (
     <>
       <Header/>
-      Home
+      profile
     </>
   )
 }
 
-export default Home;
+export default Profile;
