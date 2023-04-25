@@ -14,7 +14,7 @@ export function useTags() {
       setError('');
       setLoading(true);
       const response = await axios.get<ITagsList[]>(`${API}/tags`);
-      setTags(response.data.results);
+      setTags(response.data);
       setLoading(false);
     } catch (e: unknown) {
       const error = e as AxiosError;
