@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import likeIcon from '../icons/like-icon.svg';
+import likedIcon from '../icons/liked-icon.svg';
 import { IQuotesList } from '../types/types';
 
 const Container = styled.div`
@@ -11,6 +12,7 @@ const Container = styled.div`
   padding: 20px 20px;
   border: 2px #ddd solid;
   border-radius: 20px;
+  margin-bottom: 20px;
 `
 
 interface QuoteProps {
@@ -20,10 +22,17 @@ interface QuoteProps {
 }
 
 const Quote: React.FC<QuoteProps> = ({_id, author, content, }) => {
+
   let likes: QuoteProps[] = [];
+  likes = JSON.parse(localStorage.getItem('likes')!);
+
+  const liked = likes.some(item => {
+    return item._id === _id;
+  })
 
   function addLike(quote: QuoteProps) {
     localStorage.setItem('likes', JSON.stringify([...likes, quote]));
+    location.reload();
   }
 
   function removeLike(quote: QuoteProps) {
@@ -63,9 +72,11 @@ const Quote: React.FC<QuoteProps> = ({_id, author, content, }) => {
         <h1>{author}</h1>
         <p>{content}</p>
       </div>
-      <button onClick={updateLikesList}><img src={likeIcon} alt="like" /></button>
+      <button onClick={updateLikesList}>
+        {liked ? <img src={likedIcon} alt="liked" /> : <img src={likeIcon} alt="like" />}
+      </button>
     </Container>
   )
 }
 
-export default Quote
+export default Quote;
