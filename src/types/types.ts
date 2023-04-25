@@ -15,3 +15,13 @@ export interface IQuotes {
   lastItemIndex: number,
   results: IQuotesList[],
 }
+
+export interface ITagsList {
+  _id: string,
+  name: string,
+}
+
+export interface ITags {
+  count: number,
+  results: ITagsList[],
+}

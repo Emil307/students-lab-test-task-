@@ -1,20 +1,20 @@
 import { useState, useEffect } from 'react';
-import { IQuotesList } from '../types/types';
+import { ITagsList } from '../types/types';
 import axios, { AxiosError } from 'axios';
 
-export function useQuotes() {
-  const [quotes, setQuotes] = useState<IQuotesList[]>([]);
+export function useTags() {
+  const [tags, setTags] = useState<ITagsList[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
   const API = 'https://api.quotable.io';
 
-  async function getQuotes() {
+  async function getTags() {
     try {
       setError('');
       setLoading(true);
-      const response = await axios.get<IQuotesList[]>(`${API}/quotes?tags=love|happiness`);
-      setQuotes(response.data.results);
+      const response = await axios.get<ITagsList[]>(`${API}/tags`);
+      setTags(response.data.results);
       setLoading(false);
     } catch (e: unknown) {
       const error = e as AxiosError;
@@ -24,8 +24,8 @@ export function useQuotes() {
   }
 
   useEffect(() => {
-    getQuotes();
+    getTags();
   }, [])
 
-  return { quotes, loading, error }
+  return { tags, loading, error }
 }
