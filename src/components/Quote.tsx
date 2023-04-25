@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import likeIcon from '../icons/like-icon.svg';
-import { useTypesDispatch } from '../hooks/useTypedDispatch';
+import { IQuotesList } from '../types/types';
 
 const Container = styled.div`
   display: flex;
@@ -19,17 +19,41 @@ interface QuoteProps {
   content: string,
 }
 
-const Quote: React.FC<QuoteProps> = ({_id, author, content}) => {
-  const dispatch = useTypesDispatch();
+const Quote: React.FC<QuoteProps> = ({_id, author, content, }) => {
+  let likes: QuoteProps[] = [];
 
-  function addLikedQuote() {
-    const quote = {
+  function addLike(quote: QuoteProps) {
+    localStorage.setItem('likes', JSON.stringify([...likes, quote]));
+  }
+
+  function removeLike(quote: QuoteProps) {
+    likes = likes.filter((item) => {
+      return item._id != quote._id;
+    });
+    localStorage.setItem('likes', JSON.stringify(likes));
+    location.reload();
+  }
+
+  function updateLikesList() {
+    likes = JSON.parse(localStorage.getItem('likes')!);
+    const quote: IQuotesList = {
       _id,
       author,
       content,
+      authorSlug: '',
+      length: 1,
+      tags: [],
     }
-    dispatch({type: "ADD_LIKED_QUOTE", payload: quote})
-    console.log(quote);
+
+    const currentQuote = likes.some(item => {
+      return item._id === quote._id;
+    })
+    
+    if (currentQuote) {
+      removeLike(quote);
+    } else {
+      addLike(quote);
+    }
   }
 
   return (
@@ -39,7 +63,7 @@ const Quote: React.FC<QuoteProps> = ({_id, author, content}) => {
         <h1>{author}</h1>
         <p>{content}</p>
       </div>
-      <button onClick={addLikedQuote}><img src={likeIcon} alt="like" /></button>
+      <button onClick={updateLikesList}><img src={likeIcon} alt="like" /></button>
     </Container>
   )
 }

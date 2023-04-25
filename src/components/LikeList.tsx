@@ -1,10 +1,12 @@
 import React from 'react';
-import { useTypesSelector } from '../hooks/useTypedSelector';
 import Quote from './Quote';
+import { IQuotesList } from '../types/types';
 
-const LikeList: React.FC = () => {
-  const {likes} = useTypesSelector(state => state.like);
-  console.log(likes);
+interface LikesListProps {
+  likes: IQuotesList[],
+}
+
+const LikeList: React.FC<LikesListProps> = ({likes}) => {
   return (
     <>
       {likes.length > 0 ?
