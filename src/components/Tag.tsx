@@ -21,6 +21,7 @@ const Tag: React.FC<TagProps> = ({ _id, name }) => {
   function addTag() {
     localStorage.setItem('tag', name);
     console.log(localStorage.getItem('tag'));
+    location.reload();
   }
 
   return (

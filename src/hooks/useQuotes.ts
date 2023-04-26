@@ -22,7 +22,7 @@ export function useQuotes() {
       if (tag) {
         setError('');
         setLoading(true);
-        const response = await axios.get<IQuotesList[]>(`${API}/quotes?tags=technology`);
+        const response = await axios.get<IQuotesList[]>(`${API}/quotes?tags=${tag}`);
         setQuotes(response.data.results);
         setLoading(false);
       }
