@@ -13,11 +13,17 @@ const QuotesList: React.FC = () => {
 
   return (
     <Container>
-      {loading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
-      {quotes.map(quote => 
-        <Quote _id={quote._id} author={quote.author} content={quote.content} key={quote._id}/>
-      )}
+      {quotes.length > 0 ?
+        <>
+          {loading && <p>Loading...</p>}
+          {error && <p>{error}</p>}
+          {quotes.map(quote => 
+            <Quote _id={quote._id} author={quote.author} content={quote.content} key={quote._id}/>
+          )}
+        </>
+        :
+        <p>цитат по вашему запросу не найдено</p>
+      }
     </Container>
   )
 }

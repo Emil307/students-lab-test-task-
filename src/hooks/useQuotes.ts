@@ -13,7 +13,7 @@ export function useQuotes() {
     try {
       setError('');
       setLoading(true);
-      const response = await axios.get<IQuotesList[]>(`${API}/quotes?tags=love|happiness`);
+      const response = await axios.get<IQuotesList[]>(`${API}/quotes?tags=technology,`);
       setQuotes(response.data.results);
       setLoading(false);
     } catch (e: unknown) {

@@ -9,7 +9,7 @@ const Container = styled.div`
 
 const TagsList: React.FC = () => {
   const { tags, loading, error } = useTags();
-  console.log(tags);
+
   return (
     <Container>
       {loading && <p>Loading...</p>}
