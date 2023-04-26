@@ -8,14 +8,24 @@ export function useQuotes() {
   const [error, setError] = useState('');
 
   const API = 'https://api.quotable.io';
+  const tag = localStorage.getItem('tag');
 
   async function getQuotes() {
     try {
-      setError('');
-      setLoading(true);
-      const response = await axios.get<IQuotesList[]>(`${API}/quotes?tags=technology,`);
-      setQuotes(response.data.results);
-      setLoading(false);
+      if (!tag) {
+        setError('');
+        setLoading(true);
+        const response = await axios.get<IQuotesList[]>(`${API}/quotes`);
+        setQuotes(response.data.results);
+        setLoading(false);
+      }
+      if (tag) {
+        setError('');
+        setLoading(true);
+        const response = await axios.get<IQuotesList[]>(`${API}/quotes?tags=technology`);
+        setQuotes(response.data.results);
+        setLoading(false);
+      }
     } catch (e: unknown) {
       const error = e as AxiosError;
       setLoading(false);

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTags } from '../hooks/useTags';
+import Tag from './Tag';
 import styled from 'styled-components'; 
 
 const Container = styled.div`
@@ -15,7 +16,7 @@ const TagsList: React.FC = () => {
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
       {tags.map(tag => 
-        <div key={tag._id}>{tag.name}</div>
+        <Tag _id={tag._id} name={tag.name} key={tag._id}/>
       )}
     </Container>
   )

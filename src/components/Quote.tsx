@@ -26,11 +26,12 @@ const Quote: React.FC<QuoteProps> = ({_id, author, content, }) => {
   let likes: QuoteProps[] = [];
   likes = JSON.parse(localStorage.getItem('likes')!);
 
-  const liked = likes.some(item => {
+  const liked = likes !== null ? likes.some(item => {
     return item._id === _id;
-  })
+  }) : false;
 
   function addLike(quote: QuoteProps) {
+    likes = JSON.parse(localStorage.getItem('likes')!);
     localStorage.setItem('likes', JSON.stringify([...likes, quote]));
     location.reload();
   }
@@ -54,9 +55,9 @@ const Quote: React.FC<QuoteProps> = ({_id, author, content, }) => {
       tags: [],
     }
 
-    const currentQuote = likes.some(item => {
+    const currentQuote = likes !== null ? likes.some(item => {
       return item._id === quote._id;
-    })
+    }) : false;
     
     if (currentQuote) {
       removeLike(quote);

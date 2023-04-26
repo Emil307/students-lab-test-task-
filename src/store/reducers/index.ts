@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux';
-import { likeReducer } from './likeReducer';
+import { TagReducer } from './TagReducer';
 
 export const rootReducer = combineReducers({
-  like: likeReducer,
+  tag: TagReducer,
 })
 
 export type RootState = ReturnType<typeof rootReducer>
