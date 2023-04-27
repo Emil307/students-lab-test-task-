@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const Button = styled.button`
-  border: 1px #ddd solid;
+  font-family: 'Roboto', sans-serif;
   padding: 10px 15px;
   border-radius: 6px;
-  transition: all .2s ease;
+  background: rgba(0, 0, 0, 0.05);
+  color: #0f0f0f;
+  transition: background-color 0.5s cubic-bezier(0.05,0,0,1);
   &:hover {
-    background: #000;
-    color: #fff;
+    background: rgba(0, 0, 0, 0.1);
   }
 `
 
@@ -22,7 +23,6 @@ const Tag: React.FC<TagProps> = ({ _id, name }) => {
 
   function addTag() {
     localStorage.setItem('tag', name);
-    console.log(localStorage.getItem('tag'));
     location.reload();
   }
 
