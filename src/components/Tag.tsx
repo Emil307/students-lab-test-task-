@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const Button = styled.button`
@@ -18,14 +18,30 @@ interface TagProps {
 }
 
 const Tag: React.FC<TagProps> = ({ _id, name }) => {
+  const [active, setActive] = useState(localStorage.getItem('tag'));
+
   function addTag() {
     localStorage.setItem('tag', name);
     console.log(localStorage.getItem('tag'));
     location.reload();
   }
 
+  function removeTag() {
+    localStorage.removeItem('tag');
+    location.reload();
+  }
+
+  function updateTag() {
+    if (active == name) {
+      removeTag();
+    }
+    if (active != name) {
+      addTag();
+    }
+  }
+
   return (
-    <Button onClick={addTag}>{name}</Button>
+    <Button onClick={updateTag}>{name}</Button>
   )
 }
 
