@@ -1,16 +1,26 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const Button = styled.button`
+const buttonStyles = css`
   font-family: 'Roboto', sans-serif;
   padding: 10px 15px;
   border-radius: 6px;
+  transition: background-color 0.5s cubic-bezier(0.05,0,0,1); 
+`
+
+const Button = styled.button`
   background: rgba(0, 0, 0, 0.05);
   color: #0f0f0f;
-  transition: background-color 0.5s cubic-bezier(0.05,0,0,1);
   &:hover {
     background: rgba(0, 0, 0, 0.1);
-  }
+  } 
+  ${buttonStyles}
+`
+
+const ActiveButton = styled.button`
+  background: #0f0f0f;
+  color: #fff;
+  ${buttonStyles}
 `
 
 interface TagProps {
@@ -41,7 +51,13 @@ const Tag: React.FC<TagProps> = ({ _id, name }) => {
   }
 
   return (
-    <Button onClick={updateTag}>{name}</Button>
+    <>
+      {active == name ?
+        <ActiveButton onClick={updateTag}>{name}</ActiveButton>
+        :
+        <Button onClick={updateTag}>{name}</Button>
+      }
+    </>
   )
 }
 
