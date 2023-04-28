@@ -5,14 +5,30 @@ import likedIcon from '../icons/liked-icon.svg';
 import { IQuotesList } from '../types/types';
 
 const Container = styled.div`
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  width: calc(100% - 40px - 4px);
-  height: calc(100% - 40px);
-  padding: 20px 20px;
-  border: 2px #ddd solid;
-  border-radius: 20px;
-  margin-bottom: 20px;
+  padding: 12px 0;
+`
+
+const Content = styled.div``
+
+const Title = styled.h2`
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.2;
+
+  color: #0f0f0f;
+  margin-bottom: 10px;
+`
+
+const Text = styled.p`
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+
+  color: #606060;
 `
 
 interface QuoteProps {
@@ -68,11 +84,10 @@ const Quote: React.FC<QuoteProps> = ({_id, author, content, }) => {
 
   return (
     <Container>
-      <div>
-        <span>{_id}</span>
-        <h1>{author}</h1>
-        <p>{content}</p>
-      </div>
+      <Content>
+        <Title>{author}</Title>
+        <Text>{content}</Text>
+      </Content>
       <button onClick={updateLikesList}>
         {liked ? <img src={likedIcon} alt="liked" /> : <img src={likeIcon} alt="like" />}
       </button>

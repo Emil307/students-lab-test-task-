@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 
 const buttonStyles = css`
+  height: 32px;
+  padding: 0 12px;
   font-family: 'Roboto', sans-serif;
-  padding: 10px 15px;
+  font-weight: 400;
+  font-size: 14px;
   border-radius: 6px;
   transition: background-color 0.5s cubic-bezier(0.05,0,0,1); 
 `
@@ -25,7 +28,7 @@ const ActiveButton = styled.button`
 
 interface TagProps {
   name: string,
-  _id: string
+  _id: string,
 }
 
 const Tag: React.FC<TagProps> = ({ _id, name }) => {

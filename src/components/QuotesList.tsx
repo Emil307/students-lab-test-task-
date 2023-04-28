@@ -4,8 +4,10 @@ import { useQuotes } from '../hooks/useQuotes';
 import Quote from './Quote';
 
 const Container = styled.div`
-  padding-top: 40px;
-  padding-right: 40px;
+  width: 566px;
+  padding: 14px 16px 0;
+  border-right: 1px rgb(239, 243, 244) solid;
+  border-left: 1px rgb(239, 243, 244) solid;
 `
 
 const QuotesList: React.FC = () => {

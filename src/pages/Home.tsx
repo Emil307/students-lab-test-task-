@@ -8,22 +8,16 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  max-width: 1170px;
+  max-width: 1285px;
   margin: 0 auto;
-`
-
-const Left = styled.div`
-  height: 100%;
 `
 
 const Home: React.FC = () => {
   return (
     <>
-      <Header/>
       <Container>
-        <Left>
-          <QuotesList/>
-        </Left>
+        <Header/>
+        <QuotesList/>
         <TagsList/>
       </Container>
     </>
