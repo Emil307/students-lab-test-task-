@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { devices } from '../app/styles/constants';
 import profileIcon from '../icons/profile-icon.svg';
 
 const Container = styled.header`
@@ -9,6 +10,12 @@ const Container = styled.header`
   width: 259px;
   padding: 0 16px;
   height: 100px;
+
+  @media (${devices.xl}) {
+    justify-content: center;
+    width: 72px;
+    padding: 0 8px;
+  }
 `
 
 const Logo = styled.h1`
@@ -17,6 +24,10 @@ const Logo = styled.h1`
   font-size: 24px;
 
   color: #0f0f0f;
+  
+  @media (${devices.xl}) {
+    display: none;
+  }
 `
 
 const ProfileLink = styled.a``

@@ -1,6 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
 import { useQuotes } from '../hooks/useQuotes';
+import styled from 'styled-components';
 import Quote from './Quote';
 
 const Container = styled.div`
