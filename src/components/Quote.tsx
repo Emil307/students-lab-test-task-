@@ -41,6 +41,9 @@ const Quote: React.FC<QuoteProps> = ({_id, author, content, }) => {
 
   let likes: QuoteProps[] = [];
   likes = JSON.parse(localStorage.getItem('likes')!);
+  if (likes === null) {
+    localStorage.setItem('likes', JSON.stringify([]));
+  }
 
   const liked = likes !== null ? likes.some(item => {
     return item._id === _id;
