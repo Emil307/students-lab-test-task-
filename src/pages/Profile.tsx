@@ -1,13 +1,14 @@
 import React from 'react';
-import styled from 'styled-components';
-import Header from '../components/Header';
 import LikeList from '../components/LikeList';
+import Sidebar from '../components/Sidebar';
+
+import styled from 'styled-components';
 
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  max-width: 1285px;
+  max-width: 1078px;
   margin: 0 auto;
 `
 
@@ -17,7 +18,7 @@ const Profile: React.FC = () => {
 
   return (
     <Container>
-      <Header/>
+      <Sidebar/>
       <LikeList likes={likes}/>
     </Container>
   )
