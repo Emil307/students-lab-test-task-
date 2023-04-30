@@ -18,6 +18,10 @@ const Container = styled.div`
     grid-template-columns: repeat(2, 1fr);
     width: 290px;
   }
+
+  @media (${devices.md}) {
+    display: none;
+  }
 `
 
 const TagsList: React.FC = () => {

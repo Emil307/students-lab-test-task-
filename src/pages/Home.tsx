@@ -16,6 +16,14 @@ const Container = styled.div`
   @media (${devices.xl}) {
     max-width: 1078px;
   }
+
+  @media (${devices.lg}) {
+    max-width: 1008px;
+  }
+
+  @media (${devices.md}) {
+    max-width: 670px;
+  }
 `
 
 const Home: React.FC = () => {
