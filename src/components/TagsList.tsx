@@ -1,7 +1,9 @@
 import React from 'react';
 import { useTags } from '../hooks/useTags';
 import Tag from './Tag';
-import styled from 'styled-components'; 
+
+import styled from 'styled-components';
+import { devices } from '../app/styles/constants';
 
 const Container = styled.div`
   width: 338px;
@@ -11,6 +13,11 @@ const Container = styled.div`
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(23, 32px);
   gap: 10px 10px;
+
+  @media (${devices.lg}) {
+    grid-template-columns: repeat(2, 1fr);
+    width: 290px;
+  }
 `
 
 const TagsList: React.FC = () => {
