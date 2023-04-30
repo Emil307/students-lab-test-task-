@@ -26,4 +26,4 @@ const TagsPopup: React.FC = () => {
   )
 }
 
-export default TagsPopup
+export default TagsPopup;

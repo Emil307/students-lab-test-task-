@@ -1,6 +1,7 @@
 import React from 'react';
 
 import styled from 'styled-components';
+import arrowIcon from '../icons/arrow-icon.svg';
 
 const Container = styled.div`
   width: 72px;
@@ -15,7 +16,7 @@ const Container = styled.div`
 const Sidebar: React.FC = () => {
   return (
     <Container>
-      <a href='/'>home</a>
+      <a href='/'><img src={arrowIcon} alt="home" /></a>
     </Container>
   )
 }

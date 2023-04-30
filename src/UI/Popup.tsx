@@ -24,15 +24,16 @@ const Content = styled.div`
 
 interface PopupProps {
   active: boolean,
+  setActive: (active: boolean) => void,
   children?: React.ReactNode,
 }
 
-const Popup: React.FC<PopupProps> = ({ active, children }) => {
+const Popup: React.FC<PopupProps> = ({ active, setActive, children }) => {
   return (
     <div>
       {active ?
-        <Container>
-          <Content>
+        <Container onClick={() => setActive(false)}>
+          <Content onClick={e => e.stopPropagation()}>
             {children}
           </Content>
         </Container>

@@ -61,7 +61,7 @@ const Header: React.FC = () => {
         <ProfileLink href='/profile'><img src={profileIcon} alt="profile" /></ProfileLink>
         <TagsButton onClick={() => setActive(true)}><img src={filtersIcon} alt='filters'/></TagsButton>
       </Container>
-      <Popup active={active}><TagsPopup/></Popup>
+      <Popup active={active} setActive={setActive}><TagsPopup/></Popup>
     </>
   )
 }

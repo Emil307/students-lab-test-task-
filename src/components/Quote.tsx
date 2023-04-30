@@ -11,7 +11,9 @@ const Container = styled.div`
   padding: 12px 0;
 `
 
-const Content = styled.div``
+const Content = styled.div`
+  width: calc(100% - 50px);
+`
 
 const Title = styled.h2`
   font-family: 'Roboto', sans-serif;
