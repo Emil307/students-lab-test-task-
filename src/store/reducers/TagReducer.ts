@@ -2,14 +2,6 @@ interface TagState {
   tag: string,
 }
 
-// enum TagActionTypes {
-//   FETCH_LIKES = 'FETCH_LIKES',
-// }
-
-// interface FetchTagsAction {
-//   type: TagActionTypes.FETCH_LIKES,
-// }
-
 interface TagAction {
   type: string,
   payload?: any,
